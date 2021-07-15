@@ -28,13 +28,16 @@ namespace VRCMaker
 
         private void Scroll(object sender, ScrollEventArgs e)
         {
-            if (sender == oriLyric)
+            if (Configs.GetLyricScrollBarBind())
             {
-                transLyric.ScrollToVerticalOffset(e.NewValue);
-            }
-            else
-            {
-                oriLyric.ScrollToVerticalOffset(e.NewValue);
+                if (sender == oriLyric)
+                {
+                    transLyric.ScrollToVerticalOffset(e.NewValue);
+                }
+                else
+                {
+                    oriLyric.ScrollToVerticalOffset(e.NewValue);
+                }
             }
         }
     }
