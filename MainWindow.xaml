@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VRCMaker"
         mc:Ignorable="d"
-        Title="VRCMaker" Height="450" Width="800">
+        Title="VRCMaker" Height="600" Width="900" Top="0">
     <Grid>
-        
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Menu Background="LightGray" Height="20">
+                    <MenuItem Header="文件">
+                        <MenuItem Header="打开..."></MenuItem>
+                        <MenuItem Header="导出">
+                            <MenuItem Header="导出双语VRC"></MenuItem>
+                            <MenuItem Header="导出双语LRC"></MenuItem>
+                            <MenuItem Header="导出双语ASS"></MenuItem>
+                            <MenuItem Header="导出原歌词LRC"></MenuItem>
+                            <MenuItem Header="导出翻译歌词LRC"></MenuItem>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="退出" />
+                    </MenuItem>
+                    <MenuItem Header="首选项">
+                        <MenuItem Header="设置" />
+                    </MenuItem>
+                    <MenuItem Header="帮助">
+                        <MenuItem Header="关于" />
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom">
+                <DockPanel>
+                    <TextBox DockPanel.Dock="Left" x:Name="oriLyric" Height="547" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
+                    <TextBox DockPanel.Dock="Right" x:Name="transLyric" Height="546" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
+                </DockPanel>
+            </DockPanel>
+        </DockPanel>
+
     </Grid>
 </Window>
