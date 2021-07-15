@@ -1,6 +1,6 @@
 ﻿namespace VRCMaker
 {
-    public class Config
+    public static class Config
     {
         public const int Version = 2;
     }
