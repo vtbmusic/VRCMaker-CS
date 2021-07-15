@@ -64,9 +64,8 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\AssData.cs" />
-    <Compile Include="src\Config.cs" />
-    <Compile Include="src\Vrc.cs" />
+    <Compile Include="Data\AssData.cs" />
+    <Compile Include="Data\VrcData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

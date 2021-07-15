@@ -19,12 +19,12 @@ namespace VRCMaker
         /// <summary>
         /// Vrc数据
         /// </summary>
-        public readonly Vrc Vrc;
+        public readonly VrcData VrcData;
 
         private AssData()
         {
             _vrcMapList = new List<Dictionary<string, string>>();
-            Vrc = new Vrc();
+            VrcData = new VrcData();
         }
 
 
@@ -59,9 +59,9 @@ namespace VRCMaker
                     data._vrcMapList.Add(map);
                 }
 
-                data.Vrc.karaoke = false;
-                data.Vrc.scrollDisabled = false;
-                data.Vrc.translated = data._translated;
+                data.VrcData.karaoke = false;
+                data.VrcData.scrollDisabled = false;
+                data.VrcData.translated = data._translated;
 
                 var sb1 = new StringBuilder();
                 var sb2 = new StringBuilder();
@@ -81,8 +81,8 @@ namespace VRCMaker
                     }
                 }
 
-                data.Vrc.origin.text = sb1.ToString();
-                data.Vrc.translate.text = data._translated ? sb2.ToString() : "";
+                data.VrcData.origin.text = sb1.ToString();
+                data.VrcData.translate.text = data._translated ? sb2.ToString() : "";
             }
             catch (FileNotFoundException e)
             {

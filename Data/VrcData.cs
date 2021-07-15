@@ -7,7 +7,7 @@ namespace VRCMaker
     /**
      * Vrc数据
      */
-    public class Vrc
+    public class VrcData
     {
         /**
          * 歌词数据
@@ -17,7 +17,7 @@ namespace VRCMaker
             public Kashi()
             {
                 text = "";
-                version = Config.Version;
+                version = Configs.GetVrcVersion();
             }
 
             public int version { get; set; }
@@ -30,7 +30,7 @@ namespace VRCMaker
         public Kashi origin { get; }
         public Kashi translate { get; }
 
-        public Vrc()
+        public VrcData()
         {
             karaoke = false;
             scrollDisabled = false;
