@@ -23,7 +23,7 @@
                         <MenuItem Header="退出" />
                     </MenuItem>
                     <MenuItem Header="首选项">
-                        <MenuItem Header="设置" />
+                        <MenuItem Header="设置" Click="OpenSettingsWindow" />
                     </MenuItem>
                     <MenuItem Header="帮助">
                         <MenuItem Header="关于" />

@@ -19,9 +19,21 @@ namespace VRCMaker
     /// </summary>
     public partial class Settings : Window
     {
+
         public Settings()
         {
             InitializeComponent();
+            LyricScroll.IsChecked = Configs.GetLyricScrollBarBind();
+        }
+
+        private void LyricScrollBind(object sender, EventArgs e)
+        {
+            Configs.SetLyricScrollBarBind(true);
+        }
+
+        private void LyricScrollUnBind(object sender, EventArgs e)
+        {
+            Configs.SetLyricScrollBarBind(false);
         }
     }
 }

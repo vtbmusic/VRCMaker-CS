@@ -37,7 +37,7 @@ namespace VRCMaker
             SetConfig("LyricScrollBarBind", Convert.ToString(v));
         }
 
-        public static void SetVrcVersion(bool v)
+        public static void SetVrcVersion(int v)
         {
             SetConfig("VrcVersion", Convert.ToString(v));
         }

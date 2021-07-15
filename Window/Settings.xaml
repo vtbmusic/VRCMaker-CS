@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Settings" Height="300" Width="600" ResizeMode="NoResize">
     <Grid>
-        <CheckBox x:Name="LyricScroll" Content="左右歌词框滚动条同时滚动" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LyricScroll" Checked="LyricScrollBind" Unchecked="LyricScrollUnBind" Content="左右歌词框滚动条同时滚动" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

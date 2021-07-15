@@ -40,5 +40,11 @@ namespace VRCMaker
                 }
             }
         }
+
+        private void OpenSettingsWindow(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.ShowDialog();
+        }
     }
 }
