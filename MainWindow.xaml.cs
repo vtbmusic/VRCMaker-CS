@@ -4,14 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using VRCMaker.Model;
 
 namespace VRCMaker
 {
@@ -24,5 +18,17 @@ namespace VRCMaker
         {
             InitializeComponent();
         }
+
+        #region 数据绑定
+
+        private void NavigationBar_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<NavigationBarModel> navigations = new List<NavigationBarModel>();
+            navigations.Add(new NavigationBarModel {Imagesource= (ImageSource)new ImageSourceConverter().ConvertFromString("https://cloud.alphaly.net/api/v3/file/get/11/%E4%B8%BB%E9%A1%B5.png?sign=jWZ_4lZcUVWfKbJMLvsfB4CZNJGEdoe1UNo7p3x9Eyc%3D%3A0") ,Text="主页"});
+            navigations.Add(new NavigationBarModel { Imagesource = (ImageSource)new ImageSourceConverter().ConvertFromString("https://cloud.alphaly.net/api/v3/file/get/11/%E4%B8%BB%E9%A1%B5.png?sign=jWZ_4lZcUVWfKbJMLvsfB4CZNJGEdoe1UNo7p3x9Eyc%3D%3A0"), Text = "主页" });
+            NavigationBar.ItemsSource = navigations;
+        }
+
+        #endregion
     }
 }

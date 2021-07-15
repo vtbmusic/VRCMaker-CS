@@ -5,8 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VRCMaker"
         mc:Ignorable="d"
-        Title="VRCMaker" Height="450" Width="800">
+        Title="VRCMaker" Height="450" Width="800" RenderOptions.BitmapScalingMode="HighQuality">
+    <Window.Resources>
+        <Style x:Key="NavigationViewDefault" TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Foreground" Value="Azure"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.75" Duration="00:00:00:00.30"></DoubleAnimation>
+                                <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" From="Azure" To="AliceBlue" Duration="00:00:00:00.30"></ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.75" To="1" Duration="00:00:00:00.30"></DoubleAnimation>
+                                <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" From="AliceBlue" To="Azure" Duration="00:00:00:00.30"></ColorAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Background="#FF0D2738" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource NavigationViewDefault}" x:Name="NavigationBar" Loaded="NavigationBar_Loaded">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                        <Image Source="{Binding Imagesource}" Width="30" Height="30" Stretch="Uniform"/>
+                        <TextBlock Margin="20,0,0,0" Text="{Binding Text}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
