@@ -33,11 +33,16 @@
             </DockPanel>
             <DockPanel DockPanel.Dock="Bottom">
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" x:Name="oriLyric" Height="547" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
-                    <TextBox DockPanel.Dock="Right" x:Name="transLyric" Height="546" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
+                        <Grid>
+                           <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                           </Grid.ColumnDefinitions>
+                           <TextBox DockPanel.Dock="Left" x:Name="oriLyric" Height="Auto" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="0"/>
+                           <TextBox DockPanel.Dock="Right" x:Name="transLyric" Height="Auto" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Column="1"/>
+                        </Grid>
                 </DockPanel>
             </DockPanel>
         </DockPanel>
-
     </Grid>
 </Window>
