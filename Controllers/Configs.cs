@@ -5,8 +5,10 @@ namespace VRCMaker.Controllers
 {
     public static class Configs
     {
-        private static readonly Configuration Cfg =
-            ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        private static readonly Lazy<Configuration> LazyCfg =
+            new Lazy<Configuration>(() => ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None));
+
+        private static Configuration Cfg => LazyCfg.Value;
 
         private static string GetConfig(string key)
         {
