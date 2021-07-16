@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VRCMaker"
         mc:Ignorable="d"
-        Title="VRCMaker" Height="600" Width="900" Top="0">
+        Title="VRCMaker" Height="600" Width="900" Top="0" MinHeight="600" MinWidth="900" WindowStartupLocation="CenterScreen">
     <Grid>
         <DockPanel>
             <DockPanel DockPanel.Dock="Top">
