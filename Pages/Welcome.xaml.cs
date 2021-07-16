@@ -24,6 +24,14 @@ namespace VRCMaker.Pages
         public Welcome()
         {
             InitializeComponent();
+            Loading.Visibility = Visibility.Hidden;
+        }
+
+        private async void Welcomes_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(1500);
+            Loading.Visibility = Visibility.Visible;
+            WelcomeSlogan.Visibility = Visibility.Hidden;
         }
     }
 }

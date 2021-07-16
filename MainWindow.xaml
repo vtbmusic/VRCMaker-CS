@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:VRCMaker"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="VRCMaker" Height="480" Width="800" Top="0" MinHeight="480" MinWidth="800" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="VRCMaker" Height="600" Width="900" Top="0" MinHeight="480"
+        ResizeMode="NoResize" MinWidth="800" Background="Transparent"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Icon="/Assets/Logo.png">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -19,11 +22,9 @@
             </Grid.Background>
             <TextBlock Foreground="AliceBlue" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
                        Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Minimize"/>
-                <Image Source="/Assets/Maxmize.png" Width="15" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
-                   Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Maxmize"/>
-            <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
                    Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
             </StackPanel>
         </Grid>

@@ -23,7 +23,6 @@ namespace VRCMaker
             InitializeComponent();
             Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close),true);
             Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
-            Maxmize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Maxmize), true);
             WindowBlur.SetIsEnabled(this, true);
             MainFrame.Navigate(new Uri("Pages/Welcome.xaml", UriKind.Relative));
         }
@@ -43,10 +42,6 @@ namespace VRCMaker
         private void Window_Minimize(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
-        }
-        private void Window_Maxmize(object sender, RoutedEventArgs e)
-        {
-            this.WindowState = (this.WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
         }
         #endregion
     }

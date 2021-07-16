@@ -4,16 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VRCMaker.Pages"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Welcome">
-
+    <Page.Resources>
+        <Style x:Key="WelcomeDefault" TargetType="StackPanel">
+            <Style.Triggers>
+                <Trigger Property="IsVisible" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,-100,0,0" Duration="00:00:00:01.5"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
         
     <Grid>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="Welcomes">
-        <Image Source="/Assets/Logo.png" Width="150" RenderOptions.BitmapScalingMode="HighQuality"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="Welcomes" Style="{StaticResource WelcomeDefault}" Loaded="Welcomes_Loaded">
+            <Image Source="/Assets/Logo.png" Width="150" RenderOptions.BitmapScalingMode="HighQuality"/>
             <TextBlock HorizontalAlignment="Center" FontSize="22" Foreground="MediumAquamarine"
-                       FontFamily="Microsoft YaHei UI Bold">欢迎！</TextBlock>
+                       FontFamily="Microsoft YaHei UI Bold" Margin="0,5" x:Name="WelcomeSlogan">欢迎
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <Trigger Property="IsVisible" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="00:00:00:00.8"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
         </StackPanel>
+        <hc:LoadingCircle x:Name="Loading" Margin="0,160,0,0"/>
     </Grid>
 </Page>
