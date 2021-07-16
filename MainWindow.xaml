@@ -11,7 +11,8 @@
             <DockPanel DockPanel.Dock="Top">
                 <Menu Background="LightGray" Height="20">
                     <MenuItem Header="文件">
-                        <MenuItem Header="打开..."></MenuItem>
+                        <MenuItem Header="打开..." Click="OnOpenFileClicked">
+                        </MenuItem>
                         <MenuItem Header="导出">
                             <MenuItem Header="导出双语VRC"></MenuItem>
                             <MenuItem Header="导出双语LRC"></MenuItem>
