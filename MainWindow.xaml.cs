@@ -25,6 +25,7 @@ namespace VRCMaker
             Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
             Maxmize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Maxmize), true);
             WindowBlur.SetIsEnabled(this, true);
+            MainFrame.Navigate(new Uri("Pages/Welcome.xaml", UriKind.Relative));
         }
         #region 标题栏事件
         ///<summary>

@@ -31,7 +31,7 @@
             <Grid.Background>
                 <SolidColorBrush Color="AliceBlue"  Opacity="0.9"></SolidColorBrush>
             </Grid.Background>
-            
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
     </Grid>
 </Window>
