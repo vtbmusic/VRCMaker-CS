@@ -67,17 +67,24 @@ namespace VRCMaker
                 var sb2 = new StringBuilder();
                 foreach (var map in data._vrcMapList)
                 {
-                    var kashi = map["Text"];
+                    var lrc = map["Text"];
                     var time = "[" + map["Start"] + "]";
                     if (data._translated)
                     {
-                        var tranStr = kashi.Split(new[] {@"\N"}, StringSplitOptions.None);
-                        sb1.Append(time).Append(tranStr[0]).Append("\n");
-                        sb2.Append(time).Append(tranStr[1].Replace(@"\N", "")).Append("\n");
+                        var tranStr = lrc.Split(new[] {@"\N"}, StringSplitOptions.None);
+                        sb1.Append(time).Append(tranStr[0]).Append(@"\n");
+                        if (tranStr.Length > 1)
+                        {
+                            sb2.Append(time).Append(tranStr[1].Replace(@"\N", "")).Append(@"\n");
+                        }
+                        else
+                        {
+                            sb2.Append(time).Append(@"\n");
+                        }
                     }
                     else
                     {
-                        sb1.Append(time).Append(kashi).Append("\n");
+                        sb1.Append(time).Append(lrc).Append(@"\n");
                     }
                 }
 
