@@ -1,35 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace VRCMaker
+namespace VRCMaker.Controllers
 {
-    class Configs
+    public static class Configs
     {
+        private static readonly Configuration Cfg =
+            ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-        private static string GetConfig(string key) 
+        private static string GetConfig(string key)
         {
-            return ConfigurationManager.AppSettings[key];
+            lock (Cfg)
+            {
+                return Cfg.AppSettings.Settings[key].Value;
+            }
         }
 
         private static void SetConfig(string key, string value)
         {
-            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            cfa.AppSettings.Settings[key].Value = value;
-            cfa.Save();
+            lock (Cfg)
+            {
+                Cfg.AppSettings.Settings[key].Value = value;
+                Cfg.Save();
+            }
         }
 
-        public static bool GetLyricScrollBarBind()
+        public static bool GetLyricScrollBarBind(bool defValue = false)
         {
-            return Convert.ToBoolean(value: GetConfig("LyricScrollBarBind"));
+            try
+            {
+                return Convert.ToBoolean(GetConfig("LyricScrollBarBind"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return defValue;
+            }
         }
 
-        public static int GetVrcVersion()
+        public static int GetVrcVersion(int defValue = 2)
         {
-            return Convert.ToInt32(value: GetConfig("VrcVersion"));
+            try
+            {
+                return Convert.ToInt32(GetConfig("VrcVersion"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return defValue;
+            }
         }
 
         public static void SetLyricScrollBarBind(bool v)
@@ -41,6 +60,5 @@ namespace VRCMaker
         {
             SetConfig("VrcVersion", Convert.ToString(v));
         }
-
     }
 }

@@ -59,9 +59,9 @@ namespace VRCMaker
                     data._vrcMapList.Add(map);
                 }
 
-                data.VrcData.karaoke = false;
-                data.VrcData.scrollDisabled = false;
-                data.VrcData.translated = data._translated;
+                data.VrcData.Karaoke = false;
+                data.VrcData.ScrollDisabled = false;
+                data.VrcData.Translated = data._translated;
 
                 var sb1 = new StringBuilder();
                 var sb2 = new StringBuilder();
@@ -81,8 +81,8 @@ namespace VRCMaker
                     }
                 }
 
-                data.VrcData.origin.text = sb1.ToString();
-                data.VrcData.translate.text = data._translated ? sb2.ToString() : "";
+                data.VrcData.Origin.Text = sb1.ToString();
+                data.VrcData.Translate.Text = data._translated ? sb2.ToString() : "";
             }
             catch (FileNotFoundException e)
             {

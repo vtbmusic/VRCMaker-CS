@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using VRCMaker.Controllers;
 
 namespace VRCMaker
 {
@@ -12,36 +14,62 @@ namespace VRCMaker
         /**
          * 歌词数据
          */
-        public class Kashi
+        public class Lyric
         {
-            public Kashi()
+            public int Version { get; }
+            public string Text { get; set; }
+
+            public Lyric()
             {
-                text = "";
-                version = Configs.GetVrcVersion();
+                Text = "";
+                Version = Configs.GetVrcVersion();
             }
-
-            public int version { get; set; }
-            public string text { get; set; }
         }
+        
 
-        public bool karaoke { get; set; }
-        public bool scrollDisabled { get; set; }
-        public bool translated { get; set; }
-        public Kashi origin { get; }
-        public Kashi translate { get; }
+        public bool Karaoke { get; set; }
+        public bool ScrollDisabled { get; set; }
+        public bool Translated { get; set; }
+        public Lyric Origin { get; }
+        public Lyric Translate { get; }
 
         public VrcData()
         {
-            karaoke = false;
-            scrollDisabled = false;
-            translated = false;
-            origin = new Kashi();
-            translate = new Kashi();
+            Karaoke = false;
+            ScrollDisabled = false;
+            Translated = false;
+            Origin = new Lyric();
+            Translate = new Lyric();
+        }
+
+        public JObject ToJsonObject()
+        {
+            return new JObject
+            {
+                ["karaoke"] = Karaoke,
+                ["scrollDisabled"] = ScrollDisabled,
+                ["translated"] = Translated,
+                ["origin"] = new JObject
+                {
+                    ["version"] = Origin.Version,
+                    ["text"] = Origin.Text
+                },
+                ["translate"] = new JObject
+                {
+                    ["version"] = Translate.Version,
+                    ["text"] = Translate.Text
+                }
+            };
         }
 
         public override string ToString()
         {
-            return JsonConvert.SerializeObject(this);
+            return ToJsonObject().ToString();
+        }
+
+        public string ToString(Formatting fmt, params JsonConverter[] converters)
+        {
+            return ToJsonObject().ToString(fmt, converters);
         }
 
         public bool Save(string path)
