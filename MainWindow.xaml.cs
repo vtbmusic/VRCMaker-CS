@@ -9,10 +9,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using VRCMaker.Theme;
 
 namespace VRCMaker
 {
@@ -24,27 +21,32 @@ namespace VRCMaker
         public MainWindow()
         {
             InitializeComponent();
+            Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close),true);
+            Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
+            Maxmize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Maxmize), true);
+            WindowBlur.SetIsEnabled(this, true);
         }
-
-        private void Scroll(object sender, ScrollEventArgs e)
+        #region 标题栏事件
+        ///<summary>
+        ///鼠标移动
+        ///</summary>
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
         {
-            if (Configs.GetLyricScrollBarBind())
-            {
-                if (sender == oriLyric)
-                {
-                    transLyric.ScrollToVerticalOffset(e.NewValue);
-                }
-                else
-                {
-                    oriLyric.ScrollToVerticalOffset(e.NewValue);
-                }
-            }
+            if (MouseButtonState.Pressed == e.LeftButton)
+                this.DragMove();
         }
-
-        private void OpenSettingsWindow(object sender, RoutedEventArgs e)
+        private void Window_Close(object sender, RoutedEventArgs e)
         {
-            Settings settings = new Settings();
-            settings.ShowDialog();
+            this.Close();
         }
+        private void Window_Minimize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        private void Window_Maxmize(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = (this.WindowState == WindowState.Maximized) ? WindowState.Normal : WindowState.Maximized;
+        }
+        #endregion
     }
 }

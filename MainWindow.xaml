@@ -4,39 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VRCMaker"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="VRCMaker" Height="600" Width="900" Top="0">
+        Title="VRCMaker" Height="480" Width="800" Top="0" MinHeight="480" MinWidth="800" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
     <Grid>
-        <DockPanel>
-            <DockPanel DockPanel.Dock="Top">
-                <Menu Background="LightGray" Height="20">
-                    <MenuItem Header="文件">
-                        <MenuItem Header="打开..."></MenuItem>
-                        <MenuItem Header="导出">
-                            <MenuItem Header="导出双语VRC"></MenuItem>
-                            <MenuItem Header="导出双语LRC"></MenuItem>
-                            <MenuItem Header="导出双语ASS"></MenuItem>
-                            <MenuItem Header="导出原歌词LRC"></MenuItem>
-                            <MenuItem Header="导出翻译歌词LRC"></MenuItem>
-                        </MenuItem>
-                        <Separator />
-                        <MenuItem Header="退出" />
-                    </MenuItem>
-                    <MenuItem Header="首选项">
-                        <MenuItem Header="设置" Click="OpenSettingsWindow" />
-                    </MenuItem>
-                    <MenuItem Header="帮助">
-                        <MenuItem Header="关于" />
-                    </MenuItem>
-                </Menu>
-            </DockPanel>
-            <DockPanel DockPanel.Dock="Bottom">
-                <DockPanel>
-                    <TextBox DockPanel.Dock="Left" x:Name="oriLyric" Height="547" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
-                    <TextBox DockPanel.Dock="Right" x:Name="transLyric" Height="546" TextWrapping="Wrap" Text="" AcceptsReturn="True" ScrollBar.Scroll="Scroll" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="442"/>
-                </DockPanel>
-            </DockPanel>
-        </DockPanel>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" MouseMove="Grid_MouseMove">
+            <Grid.Background>
+                <SolidColorBrush Color="#187faf" Opacity="0.9"></SolidColorBrush>
+            </Grid.Background>
+            <TextBlock Foreground="AliceBlue" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                       Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Minimize"/>
+                <Image Source="/Assets/Maxmize.png" Width="15" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
+                   Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Maxmize"/>
+            <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                   Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <SolidColorBrush Color="AliceBlue"  Opacity="0.9"></SolidColorBrush>
+            </Grid.Background>
+            
+        </Grid>
     </Grid>
 </Window>
