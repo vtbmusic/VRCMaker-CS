@@ -15,7 +15,7 @@
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,-100,0,0" Duration="00:00:00:01.5"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,-100,0,0" Duration="00:00:00:02"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>
@@ -23,9 +23,10 @@
             </Style.Triggers>
         </Style>
     </Page.Resources>
-        
+
     <Grid>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="Welcomes" Style="{StaticResource WelcomeDefault}" Loaded="Welcomes_Loaded">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" x:Name="Welcomes"
+                    Style="{StaticResource WelcomeDefault}" Loaded="Welcomes_Loaded">
             <Image Source="/Assets/Logo.png" Width="150" RenderOptions.BitmapScalingMode="HighQuality"/>
             <TextBlock HorizontalAlignment="Center" FontSize="22" Foreground="MediumAquamarine"
                        FontFamily="Microsoft YaHei UI Bold" Margin="0,5" x:Name="WelcomeSlogan">欢迎
@@ -36,7 +37,8 @@
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="00:00:00:00.8"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                             From="1" To="0" Duration="00:00:00:01"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.EnterActions>
@@ -45,7 +47,10 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
+            <hc:LoadingCircle x:Name="Loading" Margin="0,10,0,0"/>
+            <TextBlock Text="" FontSize="30" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding}" x:Name="LoadingText"
+                       FontSize="20" Foreground="DeepSkyBlue" HorizontalAlignment="Center"/>
         </StackPanel>
-        <hc:LoadingCircle x:Name="Loading" Margin="0,160,0,0"/>
     </Grid>
 </Page>
