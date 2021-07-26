@@ -9,6 +9,8 @@
       Title="Home">
 
     <Grid>
-        
+        <StackPanel>
+            <TextBlock>主页</TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
