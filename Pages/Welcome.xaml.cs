@@ -33,7 +33,7 @@ namespace VRCMaker.Pages
             LoadingText.Text = "我们正在与API取得连接...";
             LoadingText.Text = (await APITools.CheckConnection() == "Successful") ? "连接成功，正在载入" : "连接失败，正在进入离线模式";
             await Task.Delay(1000);
-            NavigationService.GetNavigationService(this).Navigate(new Home());
+            NavigationService.GetNavigationService(this).Navigate(new Setup());
         }
     }
 }

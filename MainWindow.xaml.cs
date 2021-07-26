@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using VRCMaker.Theme;
 
 namespace VRCMaker
@@ -24,7 +26,7 @@ namespace VRCMaker
             Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close),true);
             Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
             WindowBlur.SetIsEnabled(this, true);
-            MainFrame.Navigate(new Uri("Pages/Welcome.xaml", UriKind.Relative));
+            NavigateToWelcome();
         }
         #region 标题栏事件
         ///<summary>
@@ -44,5 +46,14 @@ namespace VRCMaker
             this.WindowState = WindowState.Minimized;
         }
         #endregion
+        private void NavigateToWelcome()
+        {
+            MainFrame.Navigate(new Uri("Pages/Welcome.xaml", UriKind.Relative));
+        }
+
+        private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            
+        }
     }
 }

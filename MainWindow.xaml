@@ -10,8 +10,46 @@
         ResizeMode="NoResize" MinWidth="800" Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
         WindowStyle="None" Icon="/Assets/Logo.png">
-    
-    <Grid>
+
+    <Window.Resources>
+        <Storyboard x:Key="PageChanging" x:Name="PageChanging">
+            <DoubleAnimation Duration="00:00:00.1" From="0" To="1"
+                             Storyboard.TargetName="Icon" Storyboard.TargetProperty="Opacity">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <ControlTemplate x:Key="TitleButtonDefault" TargetType="Button">
+            <ContentPresenter/>
+            <ControlTemplate.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Height" Value="70"/>
+                    <Setter Property="Width" Value="70"/>
+                </Style>
+            </ControlTemplate.Resources>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.6" Duration="00:00:00:00.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.6" To="1" Duration="00:00:00:00.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="38"/>
             <RowDefinition/>
@@ -22,17 +60,23 @@
             </Grid.Background>
             <TextBlock Foreground="AliceBlue" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
+                    <Button Template="{StaticResource TitleButtonDefault}">
+                        <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
                        Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Minimize"/>
-                <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                    </Button>
+                    <Button Template="{StaticResource TitleButtonDefault}">
+                    <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
                    Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
-            </StackPanel>
+                    </Button>
+                </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.Background>
                 <SolidColorBrush Color="AliceBlue"  Opacity="0.8"></SolidColorBrush>
             </Grid.Background>
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        </Grid>
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated">
+                </Frame>
+            </Grid>
     </Grid>
+    </Border>
 </Window>

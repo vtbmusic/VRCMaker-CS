@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VRCMaker.Pages
+namespace VRCMaker.Pages.SetupPages
 {
     /// <summary>
-    /// Home.xaml 的交互逻辑
+    /// WelcomePage.xaml 的交互逻辑
     /// </summary>
-    public partial class Home : Page
+    public partial class WelcomePage : Page
     {
-        public Home()
+        public WelcomePage()
         {
             InitializeComponent();
         }
-        
     }
 }
