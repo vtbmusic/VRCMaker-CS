@@ -7,7 +7,7 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Welcome">
+      Title="Welcome" TextOptions.TextFormattingMode="Ideal">
     <Page.Resources>
         <Style x:Key="WelcomeDefault" TargetType="StackPanel">
             <Style.Triggers>

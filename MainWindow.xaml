@@ -9,7 +9,7 @@
         Title="VRCMaker" Height="600" Width="900" Top="0" MinHeight="480"
         ResizeMode="NoResize" MinWidth="800" Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" Icon="/Assets/Logo.png">
+        WindowStyle="None" Icon="/Assets/Logo.png" TextOptions.TextFormattingMode="Ideal">
 
     <Window.Resources>
         <Storyboard x:Key="PageChanging" x:Name="PageChanging">
@@ -56,19 +56,19 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" MouseMove="Grid_MouseMove">
             <Grid.Background>
-                <SolidColorBrush Color="#187faf" Opacity="0.8"></SolidColorBrush>
+                <SolidColorBrush Color="White" Opacity="0.8"></SolidColorBrush>
             </Grid.Background>
-            <TextBlock Foreground="AliceBlue" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
+            <TextBlock Foreground="Black" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Template="{StaticResource TitleButtonDefault}">
                         <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
                        Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Minimize"/>
                     </Button>
                     <Button Template="{StaticResource TitleButtonDefault}">
-                    <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
-                   Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
+                        <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
+                       Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
                     </Button>
-                </StackPanel>
+           </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.Background>

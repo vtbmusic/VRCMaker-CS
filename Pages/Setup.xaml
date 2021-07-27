@@ -6,17 +6,27 @@
       xmlns:local="clr-namespace:VRCMaker.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Setup">
+      Title="Setup" TextOptions.TextFormattingMode="Ideal">
 
     <Page.Resources>
         <Storyboard x:Key="LastPageClose">
             <DoubleAnimation Storyboard.TargetName="LastPageName" Storyboard.TargetProperty="Opacity" Duration="00:00:1.5" From="1.0" To="0.0"/>
         </Storyboard>
+        <ControlTemplate x:Key="PreviousButtonDefaultTemplate" TargetType="Button">
+            <Border CornerRadius="5" Background="#F6F6F7">
+                <ContentPresenter/>
+            </Border>
+        </ControlTemplate>
+        <ControlTemplate x:Key="NextButtonDefaultTemplate" TargetType="Button">
+            <Border CornerRadius="5" Background="#008746">
+                <ContentPresenter/>
+            </Border>
+        </ControlTemplate>
     </Page.Resources>
     <Grid>
-        <Border CornerRadius="5" Margin="30">
+        <Border CornerRadius="10" Margin="30">
             <Border.Background>
-                <SolidColorBrush Color="AliceBlue" Opacity="0.8"/>
+                <SolidColorBrush Color="Azure" Opacity="0.8"/>
             </Border.Background>
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="-4" BlurRadius="10" Color="LightGray"/>
@@ -27,7 +37,24 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Image Source="/Assets/logo.png" RenderOptions.BitmapScalingMode="HighQuality" Height="200" Margin="20" Grid.Row="0"/>
-                <Frame x:Name="SetupFrame" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Frame x:Name="SetupFrame" NavigationUIVisibility="Hidden" Grid.Column="1" BorderThickness="0" Grid.Row="0"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,25,0">
+                        <Button Template="{StaticResource PreviousButtonDefaultTemplate}" Width="100">
+                            <TextBlock Background="Transparent" Foreground="Black"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False">了解更多</TextBlock>
+                        </Button>
+                        <Button Template="{StaticResource NextButtonDefaultTemplate}" Width="100" Margin="5,0,5,0">
+                            <TextBlock Background="Transparent" Foreground="White"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center">下一步</TextBlock>
+                        </Button>
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

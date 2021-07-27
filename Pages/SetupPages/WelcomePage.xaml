@@ -6,9 +6,86 @@
       xmlns:local="clr-namespace:VRCMaker.Pages.SetupPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="WelcomePage">
+      Title="WelcomePage" TextOptions.TextFormattingMode="Ideal">
 
     <Grid>
-        <TextBlock FontSize="20" FontWeight="Bold" Margin="30,70">初次见面！请根据向导完成一些设定</TextBlock>
+        <StackPanel Orientation="Vertical">
+        <TextBlock FontSize="20" FontWeight="Bold" Margin="30,70,0,30">初次见面！请根据向导完成一些设定</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" VerticalAlignment="Top" Margin="40,0,0,0" Foreground="Gray" Opacity="0.8">首先，请选择一个</TextBlock>
+                <TextBlock FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Foreground="Gray" Opacity="1">偏好语言</TextBlock>
+            </StackPanel>
+            <Border CornerRadius="10" Margin="50" Background="AliceBlue" Width="400" HorizontalAlignment="Left" Opacity="0.8" Height="190">
+                <ListBox Margin="0,5,0,5" BorderThickness="0" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">中文（简体）</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">中国語（簡体字）</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">중국어 (간체)</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">Chinese (Simplified)</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">Ĉina (simpligita)</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">Упрощенный китайский)</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">Απλοποιημένα Κινέζικα)</TextBlock>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock VerticalAlignment="Center" Margin="10">Chinois simplifié)</TextBlock>
+                    </ListBoxItem>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="0,5,0,0"></Setter>
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="Height" Value="40"></Setter>
+                            <Setter Property="Template">
+                            <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Name="Border"
+                                            Background="Transparent" 
+                                            SnapsToDevicePixels="True"
+                                            CornerRadius="5" Margin="5,0,5,0">
+                                            <ContentPresenter/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.8" Duration="00:00:00:00.3"/>
+                                                            <ColorAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                            From="Transparent" To="LightGray"
+                                                            Duration="00:00:00:0.3"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.8" To="1" Duration="00:00:00:00.3"/>
+                                                            <ColorAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                            From="LightGray" To="Transparent"
+                                                            Duration="00:00:00:0.3"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>
