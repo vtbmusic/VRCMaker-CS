@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using VRCMaker.Theme;
 
 namespace VRCMaker
@@ -23,7 +14,7 @@ namespace VRCMaker
         public MainWindow()
         {
             InitializeComponent();
-            Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close),true);
+            Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close), true);
             Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
             WindowBlur.SetIsEnabled(this, true);
             ResourceDictionary resource = new ResourceDictionary();
@@ -56,7 +47,7 @@ namespace VRCMaker
 
         private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            
+
         }
     }
 }
