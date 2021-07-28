@@ -54,11 +54,8 @@
             <RowDefinition Height="38"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" MouseMove="Grid_MouseMove">
-            <Grid.Background>
-                <SolidColorBrush Color="White" Opacity="0.8"></SolidColorBrush>
-            </Grid.Background>
-            <TextBlock Foreground="Black" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
+            <Grid Grid.Row="0" MouseMove="Grid_MouseMove" Background="{DynamicResource TitleBackground}">
+                <TextBlock Foreground="{DynamicResource TextForeground}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Template="{StaticResource TitleButtonDefault}">
                         <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
@@ -70,11 +67,8 @@
                     </Button>
            </StackPanel>
         </Grid>
-        <Grid Grid.Row="1">
-            <Grid.Background>
-                <SolidColorBrush Color="AliceBlue"  Opacity="0.8"></SolidColorBrush>
-            </Grid.Background>
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated">
+            <Grid Grid.Row="1" Background="{DynamicResource WindowBackground}">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" BorderThickness="0">
                 </Frame>
             </Grid>
     </Grid>

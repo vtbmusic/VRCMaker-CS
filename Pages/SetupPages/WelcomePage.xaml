@@ -10,36 +10,36 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-        <TextBlock FontSize="20" FontWeight="Bold" Margin="30,70,0,30">初次见面！请根据向导完成一些设定</TextBlock>
+        <TextBlock FontSize="20" FontWeight="Bold" Margin="30,70,0,30" Foreground="{DynamicResource TextForeground}">初次见面！请根据向导完成一些设定</TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="15" VerticalAlignment="Top" Margin="40,0,0,0" Foreground="Gray" Opacity="0.8">首先，请选择一个</TextBlock>
-                <TextBlock FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Foreground="Gray" Opacity="1">偏好语言</TextBlock>
+                <TextBlock FontSize="15" VerticalAlignment="Top" Margin="40,0,0,0" Foreground="#6A6968" Opacity="0.8">首先，请选择一个</TextBlock>
+                <TextBlock FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Foreground="#6A6968" Opacity="1">偏好语言</TextBlock>
             </StackPanel>
-            <Border CornerRadius="10" Margin="50" Background="AliceBlue" Width="400" HorizontalAlignment="Left" Opacity="0.8" Height="190">
+            <Border CornerRadius="10" Margin="50" Background="{DynamicResource ListBoxBackground}" Width="400" HorizontalAlignment="Left" Opacity="0.8" Height="190">
                 <ListBox Margin="0,5,0,5" BorderThickness="0" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Visible">
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">中文（简体）</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">中文（简体）</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">中国語（簡体字）</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">中国語（簡体字）</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">중국어 (간체)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">중국어 (간체)</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">Chinese (Simplified)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">Chinese (Simplified)</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">Ĉina (simpligita)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">Ĉina (simpligita)</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">Упрощенный китайский)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">Упрощенный китайский)</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">Απλοποιημένα Κινέζικα)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">Απλοποιημένα Κινέζικα)</TextBlock>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <TextBlock VerticalAlignment="Center" Margin="10">Chinois simplifié)</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Margin="10" Foreground="{DynamicResource ListBoxItemForeground}">Chinois simplifié)</TextBlock>
                     </ListBoxItem>
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
@@ -60,9 +60,9 @@
                                                 <Trigger.EnterActions>
                                                     <BeginStoryboard>
                                                         <Storyboard>
-                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.8" Duration="00:00:00:00.3"/>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.9" Duration="00:00:00:00.3"/>
                                                             <ColorAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
-                                                            From="Transparent" To="LightGray"
+                                                            From="Transparent" To="Gray"
                                                             Duration="00:00:00:0.3"/>
                                                         </Storyboard>
                                                     </BeginStoryboard>
@@ -70,7 +70,7 @@
                                                 <Trigger.ExitActions>
                                                     <BeginStoryboard>
                                                         <Storyboard>
-                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.8" To="1" Duration="00:00:00:00.3"/>
+                                                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.9" To="1" Duration="00:00:00:00.3"/>
                                                             <ColorAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
                                                             From="LightGray" To="Transparent"
                                                             Duration="00:00:00:0.3"/>

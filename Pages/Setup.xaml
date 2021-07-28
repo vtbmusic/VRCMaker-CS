@@ -13,23 +13,20 @@
             <DoubleAnimation Storyboard.TargetName="LastPageName" Storyboard.TargetProperty="Opacity" Duration="00:00:1.5" From="1.0" To="0.0"/>
         </Storyboard>
         <ControlTemplate x:Key="PreviousButtonDefaultTemplate" TargetType="Button">
-            <Border CornerRadius="5" Background="#F6F6F7">
+            <Border CornerRadius="5" Background="{DynamicResource PreviousButtonBackground}">
                 <ContentPresenter/>
             </Border>
         </ControlTemplate>
         <ControlTemplate x:Key="NextButtonDefaultTemplate" TargetType="Button">
-            <Border CornerRadius="5" Background="#008746">
+            <Border CornerRadius="5" Background="{DynamicResource NextButtonBackground}">
                 <ContentPresenter/>
             </Border>
         </ControlTemplate>
     </Page.Resources>
     <Grid>
-        <Border CornerRadius="10" Margin="30">
-            <Border.Background>
-                <SolidColorBrush Color="Azure" Opacity="0.8"/>
-            </Border.Background>
+        <Border CornerRadius="10" Margin="30" Background="{DynamicResource SetupBackground}">
             <Border.Effect>
-                <DropShadowEffect ShadowDepth="-4" BlurRadius="10" Color="LightGray"/>
+                <DropShadowEffect ShadowDepth="-4" BlurRadius="10" Color="{DynamicResource ShadowColor}"/>
             </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -46,11 +43,11 @@
                     <Frame x:Name="SetupFrame" NavigationUIVisibility="Hidden" Grid.Column="1" BorderThickness="0" Grid.Row="0"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,25,0">
                         <Button Template="{StaticResource PreviousButtonDefaultTemplate}" Width="100">
-                            <TextBlock Background="Transparent" Foreground="Black"
+                            <TextBlock Background="Transparent" Foreground="{DynamicResource PreviousButtonForeground}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False">了解更多</TextBlock>
                         </Button>
                         <Button Template="{StaticResource NextButtonDefaultTemplate}" Width="100" Margin="5,0,5,0">
-                            <TextBlock Background="Transparent" Foreground="White"
+                            <TextBlock Background="Transparent" Foreground="{DynamicResource NextButtonForeground}"
                                        HorizontalAlignment="Center" VerticalAlignment="Center">下一步</TextBlock>
                         </Button>
                     </StackPanel>

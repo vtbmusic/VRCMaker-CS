@@ -26,6 +26,9 @@ namespace VRCMaker
             Close.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Close),true);
             Minimize.AddHandler(Image.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
             WindowBlur.SetIsEnabled(this, true);
+            ResourceDictionary resource = new ResourceDictionary();
+            resource.Source = new Uri("pack://application:,,,/VRCMaker;component/Theme/DarkTheme.xaml");
+            Application.Current.Resources = resource;
             NavigateToWelcome();
         }
         #region 标题栏事件
