@@ -71,6 +71,9 @@
     <Compile Include="Pages\Setup.xaml.cs">
       <DependentUpon>Setup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SetupPages\AccountSettingPage.xaml.cs">
+      <DependentUpon>AccountSettingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SetupPages\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Setup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SetupPages\AccountSettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

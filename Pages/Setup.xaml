@@ -42,13 +42,13 @@
                     </Grid.RowDefinitions>
                     <Frame x:Name="SetupFrame" NavigationUIVisibility="Hidden" Grid.Column="1" BorderThickness="0" Grid.Row="0"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,25,0">
-                        <Button Template="{StaticResource PreviousButtonDefaultTemplate}" Width="100">
+                        <Button Template="{StaticResource PreviousButtonDefaultTemplate}" Width="100" x:Name="PreviousButton">
                             <TextBlock Background="Transparent" Foreground="{DynamicResource PreviousButtonForeground}"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False">了解更多</TextBlock>
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="PreviousButtonContent">了解更多</TextBlock>
                         </Button>
-                        <Button Template="{StaticResource NextButtonDefaultTemplate}" Width="100" Margin="5,0,5,0">
+                        <Button Template="{StaticResource NextButtonDefaultTemplate}" Width="100" Margin="5,0,5,0" x:Name="NextButton">
                             <TextBlock Background="Transparent" Foreground="{DynamicResource NextButtonForeground}"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center">下一步</TextBlock>
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NextButtonContent">下一步</TextBlock>
                         </Button>
                     </StackPanel>
                 </Grid>
