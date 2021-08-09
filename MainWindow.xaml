@@ -23,7 +23,7 @@
             <Grid Grid.Row="0" MouseMove="Grid_MouseMove" Background="{DynamicResource TitleBackground}">
                 <TextBlock Foreground="{DynamicResource TextForeground}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Margin="0,1,1,0" x:Name="MinimizeButton">
+                    <Button Margin="0,1,1,0" x:Name="MinimizeButton" ToolTip="最小化">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Width" Value="50"/>
@@ -53,7 +53,7 @@
                             <iconPacks:PackIconCodicons Kind="ChromeMinimize" Height="10" Width="11" Foreground="{DynamicResource TitleButtonForeground}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </Border>
                     </Button>
-                    <Button Margin="1,1,1,0" x:Name="CloseButton">
+                    <Button Margin="1,1,1,0" x:Name="CloseButton" ToolTip="关闭">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Width" Value="50"/>

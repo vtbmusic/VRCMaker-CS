@@ -13,10 +13,13 @@
     <SolidColorBrush x:Key="PreviousButtonForeground" Color="Black"/>
     <SolidColorBrush x:Key="NextButtonForeground" Color="White"/>
     <SolidColorBrush x:Key="LoginButtonForeground" Color="White"/>
+    <SolidColorBrush x:Key="LoginButtonBackground" Color="#008746"/>
     <SolidColorBrush x:Key="ListBoxBackground" Color="#F7F6F6"/>
     <SolidColorBrush x:Key="ListBoxItemForeground" Color="Black"/>
     <SolidColorBrush x:Key="TextForeground" Color="Black"/>
     <SolidColorBrush x:Key="LoadingCircleForeground" Color="SkyBlue"/>
     <SolidColorBrush x:Key="TitleButtonForeground" Color="Black"/>
+    <SolidColorBrush x:Key="MessageReminderBackground" Color="AliceBlue" Opacity="0.7"/>
+    <SolidColorBrush x:Key="MessageReminderForeground" Color="Black"/>
     <Color x:Key="ShadowColor" R="211" G="211" B="211"/>
 </ResourceDictionary>

@@ -18,5 +18,7 @@
     <SolidColorBrush x:Key="TextForeground" Color="White"/>
     <SolidColorBrush x:Key="LoadingCircleForeground" Color="AliceBlue"/>
     <SolidColorBrush x:Key="TitleButtonForeground" Color="AliceBlue"/>
+    <SolidColorBrush x:Key="MessageReminderBackground" Color="AliceBlue" Opacity="0.7"/>
+    <SolidColorBrush x:Key="MessageReminderForeground" Color="Black"/>
     <Color x:Key="ShadowColor" R="0" G="0" B="0"/>
 </ResourceDictionary>
