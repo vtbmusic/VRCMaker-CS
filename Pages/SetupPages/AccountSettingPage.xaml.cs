@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HandyControl.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace VRCMaker.Pages.SetupPages
         public AccountSettingPage()
         {
             InitializeComponent();
+            LoginButton.AddHandler(Button.MouseDownEvent, new RoutedEventHandler(Login),true);
+        }
+        private void Login(object sender,RoutedEventArgs e)
+        {
+            Growl.Success("欢迎！", "MessageContainer");
         }
     }
 }

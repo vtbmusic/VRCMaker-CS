@@ -4,49 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VRCMaker"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
         Title="VRCMaker" Height="600" Width="900" Top="0" MinHeight="480"
         ResizeMode="NoResize" MinWidth="800" Background="Transparent"
         AllowsTransparency="True" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" Icon="/Assets/Logo.png" TextOptions.TextFormattingMode="Ideal">
+        Icon="/Assets/Logo.png" TextOptions.TextFormattingMode="Ideal" WindowStyle="None">
 
     <Window.Resources>
-        <Storyboard x:Key="PageChanging" x:Name="PageChanging">
-            <DoubleAnimation Duration="00:00:00.1" From="0" To="1"
-                             Storyboard.TargetName="Icon" Storyboard.TargetProperty="Opacity">
-                <DoubleAnimation.EasingFunction>
-                    <CubicEase EasingMode="EaseIn"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
-        <ControlTemplate x:Key="TitleButtonDefault" TargetType="Button">
-            <ContentPresenter/>
-            <ControlTemplate.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Height" Value="70"/>
-                    <Setter Property="Width" Value="70"/>
-                </Style>
-            </ControlTemplate.Resources>
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.6" Duration="00:00:00:00.3"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                    <Trigger.ExitActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.6" To="1" Duration="00:00:00:00.3"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.ExitActions>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
     </Window.Resources>
     <Border>
         <Grid>
@@ -57,18 +23,70 @@
             <Grid Grid.Row="0" MouseMove="Grid_MouseMove" Background="{DynamicResource TitleBackground}">
                 <TextBlock Foreground="{DynamicResource TextForeground}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="18" FontFamily="Century Gothic">VRC Maker</TextBlock>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Template="{StaticResource TitleButtonDefault}">
-                        <Image Source="/Assets/Minimize.png" Width="15" Stretch="Uniform" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"
-                       Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Minimize"/>
+                    <Button Margin="0,1,1,0" x:Name="MinimizeButton">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Height" Value="32"/>
+                                <Setter Property="VerticalAlignment" Value="Top"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="MinimizeButtonElement" BorderThickness="0">
+                                                <ContentPresenter x:Name="MinimizeButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="MinimizeButtonElement" Property="Background" Value="Gray"/>
+                                                    <Setter TargetName="MinimizeButtonElement" Property="Opacity" Value="0.8"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Style>
+                        </Button.Style>
+                        <Border Background="Transparent" Height="32" Width="50">
+                            <iconPacks:PackIconCodicons Kind="ChromeMinimize" Height="10" Width="11" Foreground="{DynamicResource TitleButtonForeground}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
                     </Button>
-                    <Button Template="{StaticResource TitleButtonDefault}">
-                        <Image Source="/Assets/Close.png" Width="15" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"
-                       Cursor="Hand" RenderOptions.BitmapScalingMode="HighQuality" x:Name="Close"/>
+                    <Button Margin="1,1,1,0" x:Name="CloseButton">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Width" Value="50"/>
+                                <Setter Property="Height" Value="32"/>
+                                <Setter Property="VerticalAlignment" Value="Top"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border x:Name="CloseButtonElement" BorderThickness="0">
+                                                <ContentPresenter x:Name="CloseButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger SourceName="CloseButtonElement" Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="CloseButtonElement" Property="Background" Value="Red"/>
+                                                    <Setter TargetName="CloseButtonElement" Property="Opacity" Value="0.8"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Style>
+                        </Button.Style>
+                        <Border Background="Transparent" Height="32" Width="50">
+                            <iconPacks:PackIconFeatherIcons Kind="X" Height="10" Width="10" Foreground="{DynamicResource TitleButtonForeground}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
                     </Button>
            </StackPanel>
         </Grid>
             <Grid Grid.Row="1" Background="{DynamicResource WindowBackground}">
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" BorderThickness="0">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" BorderThickness="0">
                 </Frame>
             </Grid>
     </Grid>

@@ -4,14 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VRCMaker.Pages.SetupPages"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="490"
       Title="AccountSettingPage">
 
+    <Page.Resources>
+        <ControlTemplate x:Key="LoginButtonDefaultTemplate" TargetType="Button">
+            <Border CornerRadius="5" Background="{DynamicResource LoginButtonBackground}">
+                <ContentPresenter/>
+            </Border>
+        </ControlTemplate>
+    </Page.Resources>
     <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="150" Height="200" Margin="0,0,0,250">
+            <StackPanel hc:Growl.Token="MessageContainer" VerticalAlignment="Top" Margin="0,10,10,10" Height="180"/>
+        </ScrollViewer>
         <StackPanel Orientation="Vertical">
             <TextBlock FontSize="20" Foreground="{DynamicResource TextForeground}"
                        FontWeight="Bold" Margin="30,70,0,30">账户设置</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" VerticalAlignment="Top" Margin="40,0,0,0" Foreground="#6A6968" Opacity="0.8">接着，请登录你的</TextBlock>
+                <TextBlock FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Foreground="#6A6968" Opacity="1">账户</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="70">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <TextBlock Foreground="{DynamicResource TextForeground}" VerticalAlignment="Center">电子邮件地址：</TextBlock>
+                    <TextBlock Foreground="{DynamicResource TextForeground}" VerticalAlignment="Center" Margin="0,20">密码：</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBox  BorderThickness="0" Background="{DynamicResource ListBoxBackground}" Foreground="{DynamicResource TextForeground}" HorizontalAlignment="Left" Opacity="0.8" Height="20" Width="300"></TextBox>
+                    <TextBox  BorderThickness="0" Background="{DynamicResource ListBoxBackground}" Foreground="{DynamicResource TextForeground}" HorizontalAlignment="Left" Opacity="0.8" Height="20" Width="300" Margin="0,10"></TextBox>
+                    <Button Template="{StaticResource LoginButtonDefaultTemplate}" Width="100" Margin="30" x:Name="LoginButton">
+                        <TextBlock Background="Transparent" Foreground="{DynamicResource NextButtonForeground}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="NextButtonContent">登录</TextBlock>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="90,-30,90,0" HorizontalAlignment="Right">
+                <TextBlock>
+                    <Hyperlink NavigateUri="">没有账户？注册一个</Hyperlink>
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
