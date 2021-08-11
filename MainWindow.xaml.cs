@@ -16,7 +16,7 @@ namespace VRCMaker
             InitializeComponent();
             WindowBlur.SetIsEnabled(this, true);
             ResourceDictionary resource = new ResourceDictionary();
-            resource.Source = new Uri("pack://application:,,,/VRCMaker;component/Theme/LightTheme.xaml");
+            resource.Source = new Uri("pack://application:,,,/VRCMaker;component/Theme/DarkTheme.xaml");
             Application.Current.Resources = resource;
             MinimizeButton.AddHandler(Button.MouseDownEvent, new RoutedEventHandler(Window_Minimize), true);
             CloseButton.AddHandler(Button.MouseDownEvent, new RoutedEventHandler(Window_Close), true);

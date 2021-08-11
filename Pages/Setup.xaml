@@ -15,11 +15,17 @@
         <ControlTemplate x:Key="PreviousButtonDefaultTemplate" TargetType="Button">
             <Border CornerRadius="5" Background="{DynamicResource PreviousButtonBackground}">
                 <ContentPresenter/>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" Color="{DynamicResource ShadowColor}"/>
+                </Border.Effect>
             </Border>
         </ControlTemplate>
         <ControlTemplate x:Key="NextButtonDefaultTemplate" TargetType="Button">
             <Border CornerRadius="5" Background="{DynamicResource NextButtonBackground}">
                 <ContentPresenter/>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" Color="{DynamicResource ShadowColor}"/>
+                </Border.Effect>
             </Border>
         </ControlTemplate>
     </Page.Resources>

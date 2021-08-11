@@ -1,4 +1,5 @@
 ﻿using HandyControl.Controls;
+using Notifications.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VRCMaker.Components;
 
 namespace VRCMaker.Pages.SetupPages
 {
@@ -25,10 +27,19 @@ namespace VRCMaker.Pages.SetupPages
         {
             InitializeComponent();
             LoginButton.AddHandler(Button.MouseDownEvent, new RoutedEventHandler(Login),true);
+            Message.Children.Add(new MessageReminder("登录成功", MahApps.Metro.IconPacks.PackIconFontAwesomeKind.CheckSolid));
         }
         private void Login(object sender,RoutedEventArgs e)
         {
-            Growl.Success("欢迎！", "MessageContainer");
+            var notificationManager = new NotificationManager();
+
+            notificationManager.Show(new NotificationContent
+            {
+                Title = "登录成功",
+                Message = "你好！Alphaly",
+                Type = NotificationType.Information
+            });
+
         }
     }
 }

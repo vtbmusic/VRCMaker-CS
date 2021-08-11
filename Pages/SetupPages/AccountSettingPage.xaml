@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:VRCMaker.Pages.SetupPages"
       xmlns:components="clr-namespace:VRCMaker.Components"
       xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:notifications="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="490"
       Title="AccountSettingPage">
@@ -14,14 +15,15 @@
         <ControlTemplate x:Key="LoginButtonDefaultTemplate" TargetType="Button">
             <Border CornerRadius="5" Background="{DynamicResource LoginButtonBackground}">
                 <ContentPresenter/>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="1" Color="{DynamicResource ShadowColor}"/>
+                </Border.Effect>
             </Border>
         </ControlTemplate>
     </Page.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Height="150" Margin="10">
-            <WrapPanel Orientation="Vertical">
-                <components:MessageReminder/>
-            </WrapPanel>
+            <WrapPanel Orientation="Vertical" x:Name="Message"/>
         </ScrollViewer>
         <StackPanel Orientation="Vertical">
             <TextBlock FontSize="20" Foreground="{DynamicResource TextForeground}"

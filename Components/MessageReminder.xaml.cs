@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,27 +13,69 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static VRCMaker.Model.MRIcons;
+
 
 namespace VRCMaker.Components
 {
     /// <summary>
     /// MessageReminder.xaml 的交互逻辑
     /// </summary>
-    public partial class MessageReminder : UserControl
+    public partial class MessageReminder : UserControl,IDisposable
     {
         public MessageReminder()
         {
             DataContext = this;
             InitializeComponent();
         }
-        private static readonly DependencyProperty IconProperty =
-    DependencyProperty.Register("Icon", typeof(MessageReminderIcons), typeof(MessageReminder), new PropertyMetadata(MessageReminderIcons.None));
-
-        private MessageReminderIcons Icon
+        public MessageReminder(string message, MahApps.Metro.IconPacks.PackIconFontAwesomeKind icon)
         {
-            get { return (MessageReminderIcons)GetValue(IconProperty); }
-            set { SetValue(IconProperty, value); }
+            Message = message;
+            InitializeComponent();
+            DataContext = this;
+            StatusIcon.Kind = icon;
+        }
+
+        private event EventHandler<EventArgs> Closed;
+        private void RaiseClosed(EventArgs e)
+        {
+            Closed?.Invoke(this, e);
+        }
+
+        private event EventHandler<EventArgs> Click;
+        private void RaiseClick(EventArgs e)
+        {
+            Click?.Invoke(this, e);
+        }
+
+        private static readonly DependencyProperty MessageProperty =
+    DependencyProperty.Register("Message", typeof(string), typeof(MessageReminder), new PropertyMetadata(string.Empty));
+
+        private string Message
+        {
+            get { return (string)GetValue(MessageProperty); }
+            set { SetValue(MessageProperty, value); }
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            Window.GetWindow(this).Closing += OnClosing;
+        }
+
+        private void OnClosing(object sender, CancelEventArgs cancelEventArgs)
+        {
+            this.Visibility = Visibility.Hidden;
+            Dispose();
+        }
+
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(3000);
+            Dispose();
         }
     }
 }
