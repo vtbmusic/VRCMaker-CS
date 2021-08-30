@@ -9,7 +9,7 @@
 | Name| Status|
 |-|-|
 |`main` | Suspended|
-| ` Alphaly`| In developing|
+| ` Alphaly`| Suspended|
 ## Project Structure
 <pre>
 |-VRCMaker-CS
